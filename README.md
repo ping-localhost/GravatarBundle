@@ -24,15 +24,15 @@ Installation
   composer require pyrrah/gravatar-bundle
   ```
 
-  2. If you always have some default for your gravatars such as size, rating or default it can be configured in your config :
+  2. If you always have some default for your gravatars such as size, rating, default image, or format, it can be configured in your config:
 
   ```yaml
   # config/packages/pyrrah_gravatar.yaml
   pyrrah_gravatar:
-    rating: "g"
-    size: 80
-    default: "mp"
-    format: "base64"
+    rating: "g"      # Allowed values: g, pg, r, x
+    size: 80         # Image size in pixels
+    default: "mp"   # Default image type (e.g. mp, identicon, monsterid, wavatar, retro, robohash, blank, 404)
+    format: "base64" # Output format: url or base64
   ```
 
 > [!NOTE]
@@ -59,11 +59,17 @@ Or if you want to check if a gravatar email exists:
 {% endif %}
 ```
 
-Or with parameters:
+Or with parameters (including default):
 
 ```
 <img src="{{ gravatar('alias@domain.tld', size, rating, default, format) }}" />
 ```
+
+Where:
+- `size` (int): Image size in pixels
+- `rating` (string): Allowed values: g, pg, r, x
+- `default` (string): Default image type (e.g. mp, identicon, monsterid, wavatar, retro, robohash, blank, 404)
+- `format` (string): Output format: url or base64
 
 For more information [look at the gravatar implementation pages][link-gravatar-implement].
 
