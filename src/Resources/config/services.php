@@ -15,6 +15,11 @@ return static function (ContainerConfigurator $container): void {
             null, // will be filled in with format dynamically
         ]);
 
+        $services->set('templating.helper.gravatar', Pyrrah\GravatarBundle\Templating\Helper\GravatarHelper::class)
+            ->args([
+                service('gravatar.api')
+            ]);
+
     $services->set('twig.extension.gravatar', Pyrrah\GravatarBundle\Twig\GravatarExtension::class)
         ->tag('twig.extension', ['alias' => 'gravatar'])
         ->args([
