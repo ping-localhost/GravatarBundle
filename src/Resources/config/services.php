@@ -1,8 +1,10 @@
 <?php
 
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
+
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
     $services = $container->services();
 
     $services->set('gravatar.api', Pyrrah\GravatarBundle\GravatarApi::class)
