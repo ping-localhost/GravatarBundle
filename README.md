@@ -47,27 +47,13 @@ Usage
 
 All you have to do is use the helper like this example:
 
-```html
-<img src="<?php echo $view['gravatar']->getUrl('alias@domain.tld') ?>" />
-```
-
-Or with parameters:
-
-```html
-<img src="<?php echo $view['gravatar']->getUrl('alias@domain.tld', '80', 'g', 'defaultimage.png', 'base64') ?>" />
-```
-
-The only required parameter is the email adress. The rest have default values.
-
-If you use twig you can use the helper like this example:
-
-```
+```twig
 <img src="{{ gravatar('alias@domain.tld') }}" />
 ```
 
 Or if you want to check if a gravatar email exists:
 
-```
+```twig
 {% if gravatar_exists('alias@domain.tld') %}
   The email is an gravatar email
 {% endif %}
